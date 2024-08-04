@@ -1,0 +1,18 @@
+package de.minedesso.mlgrushapi.model;
+
+import jakarta.persistence.*;
+
+import java.util.List;
+
+@Entity
+public class Arena {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer arenaId;
+    private String arenaName;
+    @OneToMany
+    @JoinColumn(name = "arenaId")
+    private List<Game> games;
+
+}
