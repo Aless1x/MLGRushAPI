@@ -17,6 +17,7 @@ public class TeamLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer teamId;
+    private String worldName;
     private int x;
     private int y;
     private int z;

@@ -1,7 +1,7 @@
 package de.minedesso.mlgrushapi.service;
 
 import de.minedesso.mlgrushapi.model.PlayerStats;
-import de.minedesso.mlgrushapi.repo.*;
+import de.minedesso.mlgrushapi.repo.PlayerStatsRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,15 +9,9 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class APIService {
+public class PlayerStatsService {
 
-    private final ArenaRepository arenaRepository;
     private final PlayerStatsRepository playerStatsRepository;
-    private final BedLocationRepository bedLocationRepository;
-    private final GameRepository gameRepository;
-    private final MapRepository mapRepository;
-    private final SpectatorLocationRepository spectatorLocationRepository;
-    private final TeamLocationRepository teamLocationRepository;
 
     public PlayerStats getPlayerStats(String uuid) {
         return playerStatsRepository.findByPlayerId(UUID.fromString(uuid));

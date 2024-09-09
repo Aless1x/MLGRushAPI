@@ -19,6 +19,7 @@ public class SpectatorLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer spectatorId;
+    private String worldName;
     private int x;
     private int y;
     private int z;

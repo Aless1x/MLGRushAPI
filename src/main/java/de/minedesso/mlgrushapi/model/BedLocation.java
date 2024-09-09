@@ -19,6 +19,7 @@ public class BedLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer bedId;
+    private String worldName;
     private int x1;
     private int y1;
     private int z1;

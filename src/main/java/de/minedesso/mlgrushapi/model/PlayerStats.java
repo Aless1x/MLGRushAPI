@@ -29,5 +29,8 @@ public class PlayerStats {
     private int blocksBroken;
     private int itemsBought;
     private int itemsDropped;
+    private int stickSlot;
+    private int pickAxeSlot;
+    private int blockSlot;
 
 }
