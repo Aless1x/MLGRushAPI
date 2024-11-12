@@ -12,8 +12,6 @@ public class ArenaMapper {
         if(arena == null) return null;
 
         ArenaDTO arenaDTO = toArenaLightDTO(arena);
-        arenaDTO.setArenaId(arena.getArenaId());
-        arenaDTO.setArenaName(arena.getArenaName());
 
         arenaDTO.setMap(MapMapper.toMapLightDTO(arena.getMap()));
 

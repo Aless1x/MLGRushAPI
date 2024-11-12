@@ -13,9 +13,6 @@ public class MapMapper {
         if(map == null) return null;
 
         MapDTO mapDTO = toMapLightDTO(map);
-        mapDTO.setMapId(map.getMapId());
-        mapDTO.setMapName(map.getMapName());
-        mapDTO.setMaterialName(map.getMaterialName());
 
         List<ArenaDTO> arenas = map.getArenas().stream().map(ArenaMapper::toArenaLightDTO).toList();
         mapDTO.setArenas(arenas);
