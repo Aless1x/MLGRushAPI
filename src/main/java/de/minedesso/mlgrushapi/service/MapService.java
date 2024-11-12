@@ -1,5 +1,7 @@
 package de.minedesso.mlgrushapi.service;
 
+import de.minedesso.mlgrushapi.objects.dto.MapDTO;
+import de.minedesso.mlgrushapi.objects.mapper.MapMapper;
 import de.minedesso.mlgrushapi.objects.model.Map;
 import de.minedesso.mlgrushapi.repo.MapRepository;
 import lombok.AllArgsConstructor;
@@ -18,22 +20,26 @@ public class MapService {
 
     /**
      * Gibt eine Liste aller Maps zurück
-     * @return 200 OK mit der Liste aller Maps, wenn Maps existieren,
-     *         204 No Content, wenn keine Maps existieren
+     *
+     * @return 200 OK mit der Liste aller Maps als DTOs, wenn Maps existieren,
+     * 204 No Content, wenn keine Maps existieren
      */
-    public ResponseEntity<List<Map>> getMapList() {
+    public ResponseEntity<List<MapDTO>> getMapList() {
         List<Map> maps = mapRepository.findAll();
         if (maps.isEmpty()) {
             return ResponseEntity.noContent().build(); // Gibt HTTP 204 No Content zurück
         }
-        return ResponseEntity.ok(maps); // Gibt HTTP 200 OK zurück
+
+        List<MapDTO> mapDTOList = maps.stream().map(MapMapper::toMapDTO).toList();
+        return ResponseEntity.ok(mapDTOList); // Gibt HTTP 200 OK zurück
     }
 
     /**
      * Speichert eine Map in der Datenbank
+     *
      * @param map Map, die gespeichert werden soll
      * @return 201 Created mit der gespeicherten Map, wenn die Map erfolgreich gespeichert wurde,
-     *         500 Internal Server Error, wenn ein Fehler aufgetreten ist
+     * 500 Internal Server Error, wenn ein Fehler aufgetreten ist
      */
     public ResponseEntity<Void> saveMap(Map map) {
         try {
@@ -46,9 +52,10 @@ public class MapService {
 
     /**
      * Löscht eine Map anhand des Namens
+     *
      * @param mapName Name der Map
      * @return 200 OK, wenn die Map erfolgreich gelöscht wurde,
-     *         404 Not Found, wenn die Map nicht existiert
+     * 404 Not Found, wenn die Map nicht existiert
      */
     public ResponseEntity<Void> deleteMapByName(String mapName) {
         Optional<Map> map = mapRepository.findByMapName(mapName);
@@ -61,23 +68,28 @@ public class MapService {
 
     /**
      * Gibt eine Map anhand des Namens zurück
+     *
      * @param mapName Name der Map
-     * @return 200 OK mit der Map, wenn die Map existiert,
-     *         404 Not Found, wenn die Map nicht existiert
+     * @return 200 OK mit der Map als DTO, wenn die Map existiert,
+     * 404 Not Found, wenn die Map nicht existiert
      */
-    public ResponseEntity<Map> getMapByName(String mapName) {
+    public ResponseEntity<MapDTO> getMapByName(String mapName) {
         Optional<Map> map = mapRepository.findByMapName(mapName);
         if (map.isPresent()) {
-            return ResponseEntity.ok(map.get());
+
+            MapDTO mapDTO = MapMapper.toMapDTO(map.get());
+            return ResponseEntity.ok(mapDTO);
+
         }
         return ResponseEntity.notFound().build();
     }
 
     /**
      * Überprüft, ob eine Map existiert
+     *
      * @param mapName Name der Map
      * @return 200 OK, wenn die Map existiert,
-     *         404 Not Found, wenn die Map nicht existiert
+     * 404 Not Found, wenn die Map nicht existiert
      */
     public ResponseEntity<Void> existsMapByName(String mapName) {
         if (mapRepository.findByMapName(mapName).isPresent()) {

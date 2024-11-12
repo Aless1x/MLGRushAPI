@@ -1,5 +1,6 @@
 package de.minedesso.mlgrushapi.controller;
 
+import de.minedesso.mlgrushapi.objects.dto.PlayerStatsDTO;
 import de.minedesso.mlgrushapi.objects.model.PlayerStats;
 import de.minedesso.mlgrushapi.service.PlayerStatsService;
 import lombok.AllArgsConstructor;
@@ -16,12 +17,12 @@ public class PlayerStatsController {
     private final PlayerStatsService playerStatsService;
 
     @GetMapping("/get/playerstats")
-    public ResponseEntity<PlayerStats> getPlayerStats(@RequestParam("uuid") String uuid) {
+    public ResponseEntity<PlayerStatsDTO> getPlayerStats(@RequestParam("uuid") String uuid) {
         return playerStatsService.getPlayerStats(uuid);
     }
 
     @PostMapping(value = "/save/playerstats", consumes= MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PlayerStats> savePlayerStats(@RequestBody PlayerStats playerStats) {
+    public ResponseEntity<PlayerStatsDTO> savePlayerStats(@RequestBody PlayerStats playerStats) {
         return playerStatsService.savePlayerStats(playerStats);
     }
 

@@ -1,5 +1,6 @@
 package de.minedesso.mlgrushapi.controller;
 
+import de.minedesso.mlgrushapi.objects.dto.MapDTO;
 import de.minedesso.mlgrushapi.objects.model.Map;
 import de.minedesso.mlgrushapi.service.MapService;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,7 @@ public class MapController {
     private final MapService mapService;
 
     @GetMapping("/get/map/list")
-    public ResponseEntity<List<Map>> getMapList() {
+    public ResponseEntity<List<MapDTO>> getMapList() {
         return mapService.getMapList();
     }
 
@@ -34,7 +35,7 @@ public class MapController {
     }
 
     @GetMapping("/get/map")
-    public ResponseEntity<Map> getMapByName(@RequestParam("mapName") String mapName) {
+    public ResponseEntity<MapDTO> getMapByName(@RequestParam("mapName") String mapName) {
         return mapService.getMapByName(mapName);
     }
 

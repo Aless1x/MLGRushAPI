@@ -90,6 +90,7 @@ fabric.properties
 
 # Target folder will be ignored
 target
+workspace.xml
 
 !.idea/codeStyles
 !.idea/runConfigurations
