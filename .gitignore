@@ -88,6 +88,9 @@ fabric.properties
 
 .idea/*
 
+# Target folder will be ignored
+target
+
 !.idea/codeStyles
 !.idea/runConfigurations
 

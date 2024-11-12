@@ -1,9 +1,8 @@
 package de.minedesso.mlgrushapi.controller;
 
-import de.minedesso.mlgrushapi.model.PlayerStats;
+import de.minedesso.mlgrushapi.objects.model.PlayerStats;
 import de.minedesso.mlgrushapi.service.PlayerStatsService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,17 +17,12 @@ public class PlayerStatsController {
 
     @GetMapping("/get/playerstats")
     public ResponseEntity<PlayerStats> getPlayerStats(@RequestParam("uuid") String uuid) {
-        PlayerStats playerStats = playerStatsService.getPlayerStats(uuid);
-        if (playerStats == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(playerStats, HttpStatus.OK);
+        return playerStatsService.getPlayerStats(uuid);
     }
 
     @PostMapping(value = "/save/playerstats", consumes= MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> savePlayerStats(@RequestBody PlayerStats playerStats) {
-        playerStatsService.savePlayerStats(playerStats);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<PlayerStats> savePlayerStats(@RequestBody PlayerStats playerStats) {
+        return playerStatsService.savePlayerStats(playerStats);
     }
 
 }

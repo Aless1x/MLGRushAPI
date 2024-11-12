@@ -1,9 +1,6 @@
-package de.minedesso.mlgrushapi.model;
+package de.minedesso.mlgrushapi.objects.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,5 +22,9 @@ public class SpectatorLocation {
     private int z;
     private float yaw;
     private float pitch;
+
+    @OneToOne
+    @JoinColumn(name = "mapId")
+    private Map map;
 
 }

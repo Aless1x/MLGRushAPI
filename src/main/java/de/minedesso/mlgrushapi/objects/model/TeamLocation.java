@@ -1,4 +1,4 @@
-package de.minedesso.mlgrushapi.model;
+package de.minedesso.mlgrushapi.objects.model;
 
 import de.minedesso.mlgrushapi.common.LocationSelection;
 import jakarta.persistence.*;
@@ -23,8 +23,14 @@ public class TeamLocation {
     private int z;
     private float yaw;
     private float pitch;
-    @OneToOne
+
+    @ManyToOne
+    @JoinColumn(name = "mapId")
+    private Map map;
+
+    @OneToOne(mappedBy = "teamLocation")
     private BedLocation bedLocation;
+
     @Enumerated(EnumType.STRING)
     private LocationSelection locationSelection;
 }

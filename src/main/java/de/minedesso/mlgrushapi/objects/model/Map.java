@@ -1,4 +1,4 @@
-package de.minedesso.mlgrushapi.model;
+package de.minedesso.mlgrushapi.objects.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,13 +20,14 @@ public class Map {
     private Integer mapId;
     private String mapName;
     private String materialName;
-    @OneToMany
-    @JoinColumn(name = "mapId")
+
+    @OneToMany(mappedBy = "map")
     private List<Arena> arenas;
-    @OneToMany
-    @JoinColumn(name = "mapId")
+
+    @OneToMany(mappedBy = "map")
     private List<TeamLocation> teamLocations;
-    @OneToOne
+
+    @OneToOne(mappedBy = "map")
     private SpectatorLocation spectatorLocation;
 
 }

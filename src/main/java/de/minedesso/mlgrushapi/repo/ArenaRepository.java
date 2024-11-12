@@ -1,6 +1,6 @@
 package de.minedesso.mlgrushapi.repo;
 
-import de.minedesso.mlgrushapi.model.Arena;
+import de.minedesso.mlgrushapi.objects.model.Arena;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

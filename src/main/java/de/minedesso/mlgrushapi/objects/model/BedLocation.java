@@ -1,9 +1,6 @@
-package de.minedesso.mlgrushapi.model;
+package de.minedesso.mlgrushapi.objects.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,5 +23,9 @@ public class BedLocation {
     private int x2;
     private int y2;
     private int z2;
+
+    @OneToOne
+    @JoinColumn(name = "teamId")
+    private TeamLocation teamLocation;
 
 }

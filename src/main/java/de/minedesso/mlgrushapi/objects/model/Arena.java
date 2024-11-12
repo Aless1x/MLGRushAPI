@@ -1,4 +1,4 @@
-package de.minedesso.mlgrushapi.model;
+package de.minedesso.mlgrushapi.objects.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,8 +19,12 @@ public class Arena {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer arenaId;
     private String arenaName;
-    @OneToMany
-    @JoinColumn(name = "arenaId")
+
+    @ManyToOne
+    @JoinColumn(name = "mapId")
+    private Map map;
+
+    @OneToMany(mappedBy = "arena")
     private List<Game> games;
 
 }

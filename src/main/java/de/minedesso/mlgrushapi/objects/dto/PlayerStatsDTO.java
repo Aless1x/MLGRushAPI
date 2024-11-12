@@ -1,22 +1,15 @@
-package de.minedesso.mlgrushapi.model;
+package de.minedesso.mlgrushapi.objects.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-public class PlayerStats {
+public class PlayerStatsDTO {
 
-    @Id
     private UUID playerId;
     private int wins;
     private int losses;
@@ -32,5 +25,8 @@ public class PlayerStats {
     private int stickSlot;
     private int pickAxeSlot;
     private int blockSlot;
+
+    private List<GameDTO> wonGames;
+    private List<GameDTO> lostGames;
 
 }
