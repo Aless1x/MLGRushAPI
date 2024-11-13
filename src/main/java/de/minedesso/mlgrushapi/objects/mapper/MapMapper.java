@@ -28,13 +28,7 @@ public class MapMapper {
     public static MapDTO toMapLightDTO(Map map) {
         if(map == null) return null;
 
-        MapDTO mapLightDTO = new MapDTO();
-
-        mapLightDTO.setMapId(map.getMapId());
-        mapLightDTO.setMapName(map.getMapName());
-        mapLightDTO.setMaterialName(map.getMaterialName());
-
-        return mapLightDTO;
+        return new MapDTO(map.getMapId(), map.getMapName(), map.getMaterialName());
     }
 
 }

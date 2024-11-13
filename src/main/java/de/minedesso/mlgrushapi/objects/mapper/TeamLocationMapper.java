@@ -19,18 +19,14 @@ public class TeamLocationMapper {
     public static TeamLocationDTO toTeamLocationLightDTO(TeamLocation teamLocation) {
         if(teamLocation == null) return null;
 
-        TeamLocationDTO teamLocationLightDTO = new TeamLocationDTO();
-
-        teamLocationLightDTO.setTeamId(teamLocation.getTeamId());
-        teamLocationLightDTO.setWorldName(teamLocation.getWorldName());
-        teamLocationLightDTO.setX(teamLocation.getX());
-        teamLocationLightDTO.setY(teamLocation.getY());
-        teamLocationLightDTO.setZ(teamLocation.getZ());
-        teamLocationLightDTO.setYaw(teamLocation.getYaw());
-        teamLocationLightDTO.setPitch(teamLocation.getPitch());
-        teamLocationLightDTO.setLocationSelection(teamLocation.getLocationSelection());
-
-        return teamLocationLightDTO;
+        return new TeamLocationDTO(teamLocation.getTeamId(),
+                teamLocation.getWorldName(),
+                teamLocation.getX(),
+                teamLocation.getY(),
+                teamLocation.getZ(),
+                teamLocation.getYaw(),
+                teamLocation.getPitch(),
+                teamLocation.getLocationSelection());
     }
 
 }

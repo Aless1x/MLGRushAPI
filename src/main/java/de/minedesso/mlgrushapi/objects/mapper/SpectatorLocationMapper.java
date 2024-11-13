@@ -18,17 +18,13 @@ public class SpectatorLocationMapper {
     public static SpectatorLocationDTO toSpectatorLocationLightDTO(SpectatorLocation spectatorLocation) {
         if(spectatorLocation == null) return null;
 
-        SpectatorLocationDTO spectatorLocationDTO = new SpectatorLocationDTO();
-
-        spectatorLocationDTO.setSpectatorId(spectatorLocation.getSpectatorId());
-        spectatorLocationDTO.setWorldName(spectatorLocation.getWorldName());
-        spectatorLocationDTO.setX(spectatorLocation.getX());
-        spectatorLocationDTO.setY(spectatorLocation.getY());
-        spectatorLocationDTO.setZ(spectatorLocation.getZ());
-        spectatorLocationDTO.setYaw(spectatorLocation.getYaw());
-        spectatorLocationDTO.setPitch(spectatorLocation.getPitch());
-
-        return spectatorLocationDTO;
+        return new SpectatorLocationDTO(spectatorLocation.getSpectatorId(),
+                spectatorLocation.getWorldName(),
+                spectatorLocation.getX(),
+                spectatorLocation.getY(),
+                spectatorLocation.getZ(),
+                spectatorLocation.getYaw(),
+                spectatorLocation.getPitch());
     }
 
 }

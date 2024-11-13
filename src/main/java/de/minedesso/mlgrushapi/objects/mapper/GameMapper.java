@@ -20,12 +20,7 @@ public class GameMapper {
     public static GameDTO toGameLightDTO(Game game) {
         if (game == null) return null;
 
-        GameDTO gameLightDTO = new GameDTO();
-
-        gameLightDTO.setGameId(game.getGameId());
-        gameLightDTO.setStartTime(game.getStartTime());
-
-        return gameLightDTO;
+        return new GameDTO(game.getGameId(), game.getStartTime());
     }
 
 }

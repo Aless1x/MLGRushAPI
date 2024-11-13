@@ -1,20 +1,22 @@
 package de.minedesso.mlgrushapi.objects.dto;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+@RequiredArgsConstructor
 @Getter
 @Setter
 public class BedLocationDTO {
 
-    private Integer bedId;
-    private String worldName;
-    private int x1;
-    private int y1;
-    private int z1;
-    private int x2;
-    private int y2;
-    private int z2;
+    private final Integer bedId;
+    private final String worldName;
+    private final int x1;
+    private final int y1;
+    private final int z1;
+    private final int x2;
+    private final int y2;
+    private final int z2;
 
     private TeamLocationDTO teamLocation;
 

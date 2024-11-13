@@ -24,12 +24,7 @@ public class ArenaMapper {
     public static ArenaDTO toArenaLightDTO(Arena arena) {
         if(arena == null) return null;
 
-        ArenaDTO arenaLightDTO = new ArenaDTO();
-
-        arenaLightDTO.setArenaId(arena.getArenaId());
-        arenaLightDTO.setArenaName(arena.getArenaName());
-
-        return arenaLightDTO;
+        return new ArenaDTO(arena.getArenaId(), arena.getArenaName());
     }
 
 }

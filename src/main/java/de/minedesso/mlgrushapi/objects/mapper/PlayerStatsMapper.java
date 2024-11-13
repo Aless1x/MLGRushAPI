@@ -25,23 +25,21 @@ public class PlayerStatsMapper {
     public static PlayerStatsDTO toPlayerStatsLightDTO(PlayerStats playerStats) {
         if(playerStats == null) return null;
 
-        PlayerStatsDTO playerStatsDTO = new PlayerStatsDTO();
-        playerStatsDTO.setPlayerId(playerStats.getPlayerId());
-        playerStatsDTO.setWins(playerStats.getWins());
-        playerStatsDTO.setLosses(playerStats.getLosses());
-        playerStatsDTO.setKills(playerStats.getKills());
-        playerStatsDTO.setDeaths(playerStats.getDeaths());
-        playerStatsDTO.setPlayedGames(playerStats.getPlayedGames());
-        playerStatsDTO.setBedsDestroyed(playerStats.getBedsDestroyed());
-        playerStatsDTO.setBedsLost(playerStats.getBedsLost());
-        playerStatsDTO.setBlocksPlaced(playerStats.getBlocksPlaced());
-        playerStatsDTO.setBlocksBroken(playerStats.getBlocksBroken());
-        playerStatsDTO.setItemsBought(playerStats.getItemsBought());
-        playerStatsDTO.setItemsDropped(playerStats.getItemsDropped());
-        playerStatsDTO.setStickSlot(playerStats.getStickSlot());
-        playerStatsDTO.setPickAxeSlot(playerStats.getPickAxeSlot());
-        playerStatsDTO.setBlockSlot(playerStats.getBlockSlot());
-        return playerStatsDTO;
+        return new PlayerStatsDTO(playerStats.getPlayerId(),
+                playerStats.getWins(),
+                playerStats.getLosses(),
+                playerStats.getKills(),
+                playerStats.getDeaths(),
+                playerStats.getPlayedGames(),
+                playerStats.getBedsDestroyed(),
+                playerStats.getBedsLost(),
+                playerStats.getBlocksPlaced(),
+                playerStats.getBlocksBroken(),
+                playerStats.getItemsBought(),
+                playerStats.getItemsDropped(),
+                playerStats.getStickSlot(),
+                playerStats.getPickAxeSlot(),
+                playerStats.getBlockSlot());
     }
 
 }

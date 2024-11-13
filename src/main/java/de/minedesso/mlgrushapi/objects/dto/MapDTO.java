@@ -1,17 +1,19 @@
 package de.minedesso.mlgrushapi.objects.dto;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Getter
 @Setter
 public class MapDTO {
 
-    private Integer mapId;
-    private String mapName;
-    private String materialName;
+    private final Integer mapId;
+    private final String mapName;
+    private final String materialName;
 
     private List<ArenaDTO> arenas;
     private List<TeamLocationDTO> teamLocations;

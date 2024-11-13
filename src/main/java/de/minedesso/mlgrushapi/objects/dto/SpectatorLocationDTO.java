@@ -1,19 +1,21 @@
 package de.minedesso.mlgrushapi.objects.dto;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+@RequiredArgsConstructor
 @Getter
 @Setter
 public class SpectatorLocationDTO {
 
-    private Integer spectatorId;
-    private String worldName;
-    private int x;
-    private int y;
-    private int z;
-    private float yaw;
-    private float pitch;
+    private final Integer spectatorId;
+    private final String worldName;
+    private final int x;
+    private final int y;
+    private final int z;
+    private final float yaw;
+    private final float pitch;
 
     private MapDTO map;
 
